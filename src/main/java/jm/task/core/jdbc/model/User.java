@@ -30,15 +30,6 @@ public class User implements Serializable {
         this.age = age;
     }
 
-    @Override
-    public String toString(){
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                '}';
-    }
     public Long getId() {
         return id;
     }
@@ -69,6 +60,15 @@ public class User implements Serializable {
 
     public void setAge(Byte age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age + '}';
     }
 
     @Override

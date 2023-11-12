@@ -23,11 +23,12 @@ public class UserDaoHibernateImpl implements UserDao {
         Session session = Util.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         try {
-            session.createSQLQuery("CREATE TABLE IF NOT EXISTS User (" +
-                    "id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT," +
-                    "name VARCHAR (50) NOT NULL," +
-                    "lastName VARCHAR (50) NOT NULL," +
-                    "age TINYINT NOT NULL)").executeUpdate();
+            session.createSQLQuery("CREATE TABLE IF NOT EXISTS User(" +
+                    "id INT NOT NULL AUTO_INCREMENT," +
+                    "name VARCHAR(45), " +
+                    "lastName VARCHAR(45), " +
+                    "age INT, " +
+                    "PRIMARY KEY(id));").executeUpdate();
             transaction.commit();
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -104,6 +105,5 @@ public class UserDaoHibernateImpl implements UserDao {
             e.printStackTrace();
             transaction.rollback();
         }
-
     }
 }
