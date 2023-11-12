@@ -1,24 +1,23 @@
 package jm.task.core.jdbc.model;
 
 import javax.persistence.*;
-import org.hibernate.annotations.Generated;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "User")
-public class User {
+@Table
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
+    @Column
     private String name;
 
-    @Column(name = "lastName")
+    @Column
     private String lastName;
 
-    @Column(name = "age")
+    @Column
     private Byte age;
 
     public User() {
@@ -31,6 +30,15 @@ public class User {
         this.age = age;
     }
 
+    @Override
+    public String toString(){
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                '}';
+    }
     public Long getId() {
         return id;
     }
@@ -61,15 +69,6 @@ public class User {
 
     public void setAge(Byte age) {
         this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age + '}';
     }
 
     @Override
